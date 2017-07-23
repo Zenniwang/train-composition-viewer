@@ -1,0 +1,207 @@
+	   
+	    //////////////////////////////////////
+	   //    Train Composition Viewer      //
+	  //  Created by Zhen on 19.07.2017   //
+	 //////////////////////////////////////
+
+
+
+@-webkit-keyframes glowing {
+  0% { background-color: #287928; -webkit-box-shadow: 0 0 3px #4F9144; }
+  50% { background-color: #3ab13a; -webkit-box-shadow: 0 0 20px #5EE34F; }
+  100% { background-color: #51e751; -webkit-box-shadow: 0 0 3px #4F9144; }
+}
+
+@-moz-keyframes glowing {
+  0% { background-color: #287928; -moz-box-shadow: 0 0 3px #4F9144; }
+  50% { background-color: #3ab13a; -moz-box-shadow: 0 0 20px #5EE34F; }
+  100% { background-color: #51e751; -moz-box-shadow: 0 0 3px #4F9144; }
+}
+
+@-o-keyframes glowing {
+  0% { background-color: #287928; box-shadow: 0 0 3px #4F9144; }
+  50% { background-color: #3ab13a; box-shadow: 0 0 20px #5EE34F; }
+  100% { background-color: #51e751; box-shadow: 0 0 3px #4F9144; }
+}
+
+@keyframes glowing {
+  0% { background-color: #287928; box-shadow: 0 0 3px #4F9144; }
+  50% { background-color: #3ab13a; box-shadow: 0 0 20px #5EE34F; }
+  100% { background-color: #51e751; box-shadow: 0 0 3px #4F9144; }
+}
+
+#movingBtn {
+	background-color: #287928;
+	border: 3px solid #BADA55;
+	border-radius: 70px;
+    -webkit-border-radius: 70px;
+    -moz-border-radius: 70px;
+    box-shadow: 0 0 8px #4F9144;
+	padding: 8px 19px;
+	width: 45%;
+	color: #ffffff;
+	text-align: center;
+    -webkit-animation: glowing 1000ms infinite;
+    -moz-animation: glowing 1000ms infinite;
+    -o-animation: glowing 1000ms infinite;
+    animation: glowing 1000ms infinite;
+}
+
+
+#stopBtn {
+	background-color: #fb4747;
+	border: 3px solid #cc4646;
+	border-radius: 70px;
+    -webkit-border-radius: 70px;
+    -moz-border-radius: 70px;
+	padding: 7px 16px;
+	width: 45%;
+	color: #ffffff;
+	text-align: center;
+}
+
+body {
+	background-color: lightgray;
+	font-size: 1.2em;
+}
+
+/*-----------------card--------------------*/
+.card {
+	color: #ffffff;
+	font-family: 'Raleway', 'Roboto', sans-serif;
+	background-color: #4B6D9D;
+	/*#A52D71; for pink set*/
+	border: 2px solid #d7dfe2;
+	border-bottom: 0;
+	border-bottom-left-radius: 0;
+	border-bottom-right-radius: 0;
+}
+
+.card img {
+  	height: 70px; 
+}
+
+.card h4{
+	text-transform: uppercase;
+}
+
+/*-----------------passby--------------------*/
+
+.passby {
+	background-color: #96CFD4;
+	/*#FEC6E6; for pink set*/
+}
+
+.passby-position {
+	margin: 80px auto;
+	font-size: .8em;
+}
+
+.list-group-item {
+	color: gray;
+}
+
+input[type=text] {
+    background: transparent;
+    border: none;
+    border-bottom: 2px solid gray;
+    color: #ffffff;
+    font-family: 'Raleway', 'Roboto', sans-serif;
+    font-size: 1.1em;
+}
+
+.form-control::-webkit-input-placeholder { text-align: center; color: #FFD7B3; font-family: 'Raleway', 'Roboto', sans-serif;}  /* WebKit, Blink, Edge */
+.form-control:-moz-placeholder { text-align: center; color: #FFD7B3; font-family: 'Raleway', 'Roboto', sans-serif;}  /* Mozilla Firefox 4 to 18 */
+.form-control::-moz-placeholder { text-align: center; color: #FFD7B3; font-family: 'Raleway', 'Roboto', sans-serif;}  /* Mozilla Firefox 19+ */
+.form-control:-ms-input-placeholder { text-align: center; color: #FFD7B3; font-family: 'Raleway', 'Roboto', sans-serif;}  /* Internet Explorer 10-11 */
+.form-control::-ms-input-placeholder { text-align: center; color: #FFD7B3; font-family: 'Raleway', 'Roboto', sans-serif;}  /* Microsoft Edge */
+
+li {
+	cursor: pointer;
+}
+
+
+label {
+	font-family: 'Raleway', 'Roboto', sans-serif;
+	margin-top: 5px;
+	margin-bottom: 0;
+}
+
+.topspace {
+	margin-top: 50px;
+}
+
+#listChangeSize {
+	margin-top: 20px;
+}
+
+#trainNumberListCard button {
+	background-color: #EEB6B5;
+	margin: 5px;
+	cursor: pointer;
+	border: 0; 
+	width: 100%;
+	padding: 8px;
+}
+
+#trainNumberListCard button:hover {
+	background-color: #FFD6D5;
+	margin: 5px;
+}
+
+#trainNumberListCard button:focus {
+	background-color: #6E7474;
+}
+
+#trainInfoCard, #divnotFound {
+	margin-top: 20px;
+}
+
+
+#table th {
+	padding: 5px;
+}
+
+#route, #schedule {
+	color: #6E7474;
+	font-weight: bolder; 
+	font-size: 1.1em;
+	text-align: left;
+}
+
+#schedule {
+	text-align: center;
+}
+
+tbody {
+	font-size: 1em;
+}
+
+/* xs < 768 */
+@media screen and (max-width: 767px) {
+    body {
+        font-size: 0.9em;
+    }
+}
+
+/* sm */
+@media screen and (min-width: 768px) {
+    body {
+        font-size: 1em;
+    }
+}
+
+/* md */
+@media screen and (min-width: 992px) {
+    body {
+        font-size: 1.2em;
+    }
+}
+
+/* lg */
+@media screen and (min-width: 1200px) {
+    body {
+        font-size: 1.3em;
+    }
+}
+

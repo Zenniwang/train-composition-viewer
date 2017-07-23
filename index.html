@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="./img/train.png">
+
+    <title>Train Composition Viewer</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="./css/customer.css" >
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Raleway" />
+  </head>
+  <body>
+    <div class="container topspace"> 
+      <div class="card">
+        <div class="card-block">
+          <div class="row">
+            <div class="col col-sm-4">
+              <div class="text-center">
+                <img src="./img/train.png">
+              </div>
+            </div>
+            <div class="col col-sm-6 col-sm-offset-2">
+              <h4>Train Composition Viewer</h4>
+              <h5>- Digitraffic live data</h5>
+            </div>
+          </div>
+        </div> 
+      </div>
+    </div>
+    <div class="container">
+      <div class="card passby">
+        <div class="card-block"> 
+          <div class="passby-position">
+            <div class="row">
+              <div class="col col-sm-4 text-right">
+                <label>Passing By:</label>
+              </div>
+              <div class="col col-sm-4 text-left">
+                <div>
+                  <input class="form-control" type="text" name="search" id="search" placeholder="HKI/hki/Helsinki . . .">  
+                </div>
+              </div>
+              <div class="col col-sm-4 text-left">
+                <label>station</label>
+              </div>
+            </div> 
+            <div class="row"> 
+              <div class="col col-sm-4">
+              </div>
+              <div class="col col-sm-4">
+                <ul class="list-group" id="result"></ul>
+              </div>
+              <div class="col col-sm-4">
+              </div>
+            </div>
+            <div class="row"> 
+              <div class="col col-sm-12" id="listChangeSize">
+                <div class="row" id="trainNumberListCard">
+                </div>
+              </div>
+              <div id="trainInfoCard" class="text-center">
+                <table class="table">
+                  <tbody>
+                    <tr>
+                      <th scope="row" id="route"></th>
+                      <td id="schedule"></td>
+                    </tr>
+                    <tr>
+                      <th scope="row">Locomotive: </th>
+                      <td id="locomotive"></td>
+                    </tr>
+                    <tr>
+                      <th scope="row">Wagons: </th>
+                      <td id="wagons"></td>
+                    <tr>
+                      <th scope="row">Length: </th>
+                      <td id="length"></td>
+                    </tr>
+                    <tr>
+                      <th scope="row">Max speed: </th>
+                      <td id="maxSpeed"></td>
+                    </tr>
+                    <tr>
+                    <tr>
+                      <th scope="row">Version: </th>
+                      <td id="version"></td>
+                    </tr>
+                      <th scope="row">Status: </th>
+                      <td id="status"></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div> 
+              <div >
+                <div id="divnotFound">
+                  <label>COMPOSITION NOT FOUND</label>
+                </div>
+                <div id="divCancelled">
+                  <hr>
+                  <p>The train has been cancelled.</p>
+                  <p>For more information please contact operator</p>
+                  <p><span id="operator"></span>.</p>   
+                </div>
+              </div>
+            </div>
+          </div>  
+        </div>
+      </div>
+    </div>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+  <script src="./js/customer.js"></script>
+  </body>
+</html>
