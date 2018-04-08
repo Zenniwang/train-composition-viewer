@@ -1,4 +1,4 @@
-	   
+		   
 	    //////////////////////////////////////
 	   //    Train Composition Viewer      //
 	  //  Created by Zhen on 19.07.2017   //
@@ -13,27 +13,26 @@ $(document).ready(function(){
 	const jsonOperator = 'https://rata.digitraffic.fi/api/v1/metadata/operators';
 
 	function currentDate() {
-		var fullDate = new Date(); 
+		var today = new Date();
+		var dd = today.getDate();
+		var mm = today.getMonth()+1; //January is 0!
+		var yyyy = today.getFullYear();
 
-		//convert month to 2 digits
-		var twoDigitMonth = ((fullDate.getMonth().length+1) === 1)? (fullDate.getMonth()+1) : '0' + (fullDate.getMonth()+1);
-		return fullDate.getFullYear() + "-" + twoDigitMonth + "-" + fullDate.getDate();  //2017-07-19
+		if(dd<10) {dd = '0'+dd} 
+		if(mm<10) {mm = '0'+mm} 
+
+		return yyyy + '-' + mm + '-' + dd; //2018-04-08
 	}
 
 
 	function currentTime() {
 	    var d = new Date();
 	    return d.getHours() + ':' + d.getMinutes() + ':' + '00';
-	  }
-
-
-	function cityInfo() {}
-
+	}
 
 	$('#trainInfoCard').hide();
 	$('#divnotFound').hide();
 	$('#divCancelled').hide();
-
 
 	$('#search').keyup(function(){  //each time release keyboard		
 		$('#result').html('');  //set result as html
@@ -41,14 +40,11 @@ $(document).ready(function(){
 		var searchField = $('#search').val();  //assign value of input
 		var expression = new RegExp(searchField, 'i');
 
-		
-
 		$.getJSON(jsonStation, function(data){			
 			$.each(data, function(key, value){
 				if(value.stationShortCode.search(expression) != -1 || value.stationName.search(expression) != -1 ){
 					// returns -1 if no match is found
-					$('#result').append('<li class="list-group-item">' + value.stationShortCode + ' / ' + value.stationName + '</li>');
-					
+					$('#result').append('<li class="list-group-item">' + value.stationShortCode + ' / ' + value.stationName + '</li>');		
 				}
 			})
 		});
@@ -60,17 +56,11 @@ $(document).ready(function(){
     	$('#trainInfoCard, #divnotFound').hide();
     	$('#listChangeSize').removeClass('col-sm-6');
     	$('#listChangeSize').addClass('col-sm-12');
-
 	});
-
-
-
-
 
 	$('#result').on('click', 'li', function() {
 	    $('#search').val($(this).text()); //send val to search, eg: HKI/Helsinki
 	    $('.passby-position').css('margin', '0 auto 10px auto');
-	    
 
 	    var selectedText = $(this).text().split('/'); //get stationCode string for next json query
 	    var selectedStation = selectedText[0]; 
@@ -99,11 +89,10 @@ $(document).ready(function(){
 
 				var clickedTrain = this.id;
 
-				var jsonTrainCompInfo = 'https://rata.digitraffic.fi/api/v1/compositions/' + clickedTrain + 
-					'?departure_date=' + currentDate();
-				var jsonTrainSchInfo = 'https://rata.digitraffic.fi/api/v1/schedules/' + clickedTrain +
-					'?departure_date=' + currentDate();
-
+				var jsonTrainCompInfo = 'https://rata.digitraffic.fi/api/v1/compositions/' +
+				currentDate() + '/' + clickedTrain;
+				var jsonTrainSchInfo = 'https://rata.digitraffic.fi/api/v1/train-tracking/' +  
+				currentDate() + '/' + clickedTrain;
 				
 				$.getJSON(jsonTrainSchInfo, function(data){					
 					if (data.cancelled) {	//if train cancelled
@@ -126,7 +115,7 @@ $(document).ready(function(){
 				
 
 				$.getJSON(jsonTrainCompInfo, function(data){
-					
+
 					//if composition info not found 
 					if(data.code == 'COMPOSITION_NOT_FOUND') {
 						$('#divnotFound').show();
@@ -134,6 +123,7 @@ $(document).ready(function(){
 					
 					}
 					else {
+
 						$('#trainInfoCard').show();
 						$('#divnotFound').hide();
 
@@ -174,5 +164,7 @@ $(document).ready(function(){
 		})
 	})
 })
+
+		
 
 		
